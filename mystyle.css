@@ -3,7 +3,7 @@
 }
 body{
     margin: 0px;
-    background-color: black;
+    background-color: #EFEEEE;
     z-index: -3;
 }
 .big_dady{
@@ -16,16 +16,16 @@ body{
     z-index: -1;
 }
 .main{
-
+    box-shadow: 5px 5px 15px #333;
     height: 60vh;
     border-radius: 5px;
     background-color: whitesmoke;
     z-index: 5;
-    /* transform: rotate(-50%,-50%); */
+
 }
 .back{
     z-index: -2;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/home.jpg);
+    background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)), url(./img/home.jpg);
     background-size: cover;
     position: absolute;
     height: 70vh;
@@ -34,15 +34,17 @@ body{
 .header{
     z-index: 1;
     position: absolute;
-    background-color: whitesmoke;
+    background-color: #323E4A;
     width: 100vw;
     text-align: center;
+    align-items: center;
     padding: 5px;
 
 }
 .headerWord{
     font-size: larger;
     float: right;
+    color: white;
 }
 .headerIn{
     float: left;
