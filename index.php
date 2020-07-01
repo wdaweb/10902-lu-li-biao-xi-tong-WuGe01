@@ -26,9 +26,11 @@
     <div class="back"></div>
     <div class="big_dady">
         <div class="main container">
+            <div style="width: 100%;">
 <?php
     (!empty($_GET['do']))?include_once "./api/".$_GET['do'].".php":include_once "./api/main.php";
 ?>  
+            </div>
         </div>
     </div>
 </body>

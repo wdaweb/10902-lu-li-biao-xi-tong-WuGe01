@@ -17,10 +17,12 @@ body{
 }
 .main{
     box-shadow: 5px 5px 15px #333;
-    height: 60vh;
+    height: 70vh;
     border-radius: 5px;
     background-color: whitesmoke;
     z-index: 5;
+    display: inline-block;
+    text-align: center;
 
 }
 .back{
@@ -36,8 +38,6 @@ body{
     position: absolute;
     background-color: #323E4A;
     width: 100vw;
-    text-align: center;
-    align-items: center;
     padding: 5px;
 
 }
@@ -49,4 +49,10 @@ body{
 .headerIn{
     float: left;
 
+}
+.myhead{
+    display: inline-block;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 100px;
 }
