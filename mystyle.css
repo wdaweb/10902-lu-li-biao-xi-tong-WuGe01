@@ -1,0 +1,50 @@
+*{
+    font-family: "微軟正黑體",Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0px;
+    background-color: black;
+    z-index: -3;
+}
+.big_dady{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+.main{
+
+    height: 60vh;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    z-index: 5;
+    /* transform: rotate(-50%,-50%); */
+}
+.back{
+    z-index: -2;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/home.jpg);
+    background-size: cover;
+    position: absolute;
+    height: 70vh;
+    width: 100vw;
+}
+.header{
+    z-index: 1;
+    position: absolute;
+    background-color: whitesmoke;
+    width: 100vw;
+    text-align: center;
+    padding: 5px;
+
+}
+.headerWord{
+    font-size: larger;
+    float: right;
+}
+.headerIn{
+    float: left;
+
+}
