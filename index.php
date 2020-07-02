@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="stylesheet" href="./plugins//bootstrap.css">
     <link rel="stylesheet" href="mystyle.css">
+    <script src="./plugins/jquery-3.5.1.js"></script>
     <title>我的電子履歷表</title>
 </head>
 <body>
