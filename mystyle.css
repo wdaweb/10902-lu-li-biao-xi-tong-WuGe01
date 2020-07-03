@@ -1,102 +1,125 @@
-*{
-    font-family: "微軟正黑體",Arial, Helvetica, sans-serif;
-    
-    
+* {
+  font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
 }
-body{
-    margin: 0px;
-    background-color: #EFEEEE;
-    z-index: -3;
-    pointer-events: none;
+body {
+  margin: 0px;
+  background-color: #efeeee;
+  z-index: -3;
+  pointer-events: none;
 }
-.b-touch{
-    pointer-events: all !important;
+.b-touch {
+  pointer-events: all !important;
 }
-.big_dady{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-    pointer-events: none;
+.big_dady {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  pointer-events: none;
 }
-.main{
-    box-shadow: 5px 5px 15px #333;
-    height: 70vh;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    z-index: 5;
-    display: inline-block;
-    text-align: center;
-    /* transition:all 1s ease-out; */
+.main {
+  box-shadow: 5px 5px 15px #333;
+  height: 70vh;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  z-index: 5;
+  display: inline-block;
+  text-align: center;
+  /* transition:all 1s ease-out; */
+}
+.back {
+  z-index: -2;
+  background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)),
+    url(./img/home.jpg);
+  background-size: cover;
+  position: absolute;
+  height: 70vh;
+  width: 100vw;
+  pointer-events: none;
+}
+.backend {
+  z-index: -2;
+  background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)),
+    url(./img/backend.jpg);
+  background-size: cover;
+  position: absolute;
+  height: 70vh;
+  width: 100vw;
+  pointer-events: none;
+}
+.header {
+  z-index: 10;
+  position: absolute;
+  background-color: #323e4a;
+  width: 100vw;
+  padding: 5px;
+}
+.headerWord {
+  font-size: larger;
+  float: right;
+  color: white;
+}
+.headerIn {
+  float: left;
+}
+.myhead {
+  display: inline-block;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+}
+.logTable {
+  margin: auto;
+}
+.logDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  margin: auto;
+  z-index: 7;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px #333;
+  background-color: whitesmoke;
+}
+.inputText {
+  z-index: 15;
+}
+.conTain {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+@media (min-width: 576px) {
+  .conTain {
+    max-width: 540px;
+  }
+}
 
+@media (min-width: 768px) {
+  .conTain {
+    max-width: 720px;
+  }
 }
-.back{
-    z-index: -2;
-    background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)), url(./img/home.jpg);
-    background-size: cover;
-    position: absolute;
-    height: 70vh;
-    width: 100vw;
-    pointer-events: none;
-}
-.backend{
-    z-index: -2;
-    background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)), url(./img/backend.jpg);
-    background-size: cover;
-    position: absolute;
-    height: 70vh;
-    width: 100vw;
-    pointer-events: none;
-}
-.header{
-    z-index: 10;
-    position: absolute;
-    background-color: #323E4A;
-    width: 100vw;
-    padding: 5px;
-    
 
+@media (min-width: 992px) {
+  .conTain {
+    max-width: 960px;
+  }
 }
-.headerWord{
-    font-size: larger;
-    float: right;
-    color: white;
-}
-.headerIn{
-    float: left;
 
-}
-.myhead{
-    display: inline-block;
-    margin: auto;
-    margin-top: 20px;
-    border-radius: 100px;
-    width: 150px;
-    height: 150px;
-}
-.logTable{
-    margin: auto;
-}
-.logDiv{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); 
-    padding: 20px;
-    margin: auto;
-    z-index: 7;
-    width: 300px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px #333;
-    background-color: whitesmoke;
-}
-.inputText{
-    z-index: 15;
-}
-input {
-    -webkit-user-select: auto !important;
+@media (min-width: 1200px) {
+  .conTain {
+    max-width: 1140px;
+  }
 }

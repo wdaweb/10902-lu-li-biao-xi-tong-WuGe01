@@ -16,7 +16,7 @@
 <body>
     <header>
         <div class="header">
-            <div class="container">
+            <div class="conTain">
                 <a onclick="showMain('main')"><img class="b-touch headerIn" src="./img/logo-01.png"></a>
                 <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('log')"
                    >後台</button>
@@ -35,7 +35,7 @@
     </header>
     <div class="back"></div>
     <div class="big_dady">
-        <div class="main container">
+        <div class="main conTain">
             <div style="width: 100%;padding: 10px;" id="main">
 
             </div>
