@@ -161,3 +161,4 @@ if(empty($chk) && empty($_SESSION['visited'])){
     $_SESSION['visited']=1;
 
 }
+$log=new DB('res_log');
