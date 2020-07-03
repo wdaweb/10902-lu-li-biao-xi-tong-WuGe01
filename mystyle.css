@@ -7,6 +7,10 @@ body{
     margin: 0px;
     background-color: #EFEEEE;
     z-index: -3;
+    pointer-events: none;
+}
+.b-touch{
+    pointer-events: all !important;
 }
 .big_dady{
     width: 100vw;
@@ -16,6 +20,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: -1;
+    pointer-events: none;
 }
 .main{
     box-shadow: 5px 5px 15px #333;
@@ -36,6 +41,7 @@ body{
     position: absolute;
     height: 70vh;
     width: 100vw;
+    pointer-events: none;
 }
 .backend{
     z-index: -2;
@@ -44,6 +50,7 @@ body{
     position: absolute;
     height: 70vh;
     width: 100vw;
+    pointer-events: none;
 }
 .header{
     z-index: 10;
@@ -86,4 +93,10 @@ body{
     border-radius: 15px;
     box-shadow: 5px 5px 15px #333;
     background-color: whitesmoke;
+}
+.inputText{
+    z-index: 15;
+}
+input {
+    -webkit-user-select: auto !important;
 }

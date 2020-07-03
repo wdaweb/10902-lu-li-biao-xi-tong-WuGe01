@@ -1,23 +1,19 @@
 
 <div class="logDiv">
 <h1>管理員登入</h1>
-<table class="logTable">
-    <tr>
-        <td>帳號:</td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>密碼:</td>
-        <td><input type="password"></td>
-    </tr>
-</table>
+<form action="">
+        <div class="mt-1">帳號: <input class='b-touch inputText' type="text"></div>
+        <div class="mt-1">密碼: <input class='b-touch inputText' type="password"></div>
+        <div class="mt-1 d-flex justify-content-around">
+        <span></span>
+        <input class="btn btn-outline-secondary b-touch" type="submit" value="確認">
+        <a class="btn btn-outline-secondary b-touch"  href="?do=main">取消</a>
+        <span></span>
+        </div>
+</form>
 </div>
 <script>
     $('.main').animate({
-    width:"0px",height:"0px"
+    width:"200px",height:"100px"
     },1000)
 </script>
