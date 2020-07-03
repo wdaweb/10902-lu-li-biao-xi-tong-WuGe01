@@ -1,6 +1,5 @@
 function showMain(e) {
-    console.log(e)
-    $.get("./api/".e.".html",{},(text)=>{
-        console.log(text)
+    $.get(`./api/${e}.html`, {}, (text) => {
+        $('#main').html(text);
     });
 }
