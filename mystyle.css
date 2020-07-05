@@ -105,7 +105,22 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.Avatar{
+  width: 200px;
+  height: 200px;
+  pointer-events: all !important;
+  cursor: pointer;
+}
+.AvatarInput{
+  pointer-events: all !important;
+}
+.text1 ,.text2{
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+  pointer-events: all !important;
 
+}
 @media (min-width: 576px) {
   .conTain {
     max-width: 540px;

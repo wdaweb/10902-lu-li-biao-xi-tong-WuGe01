@@ -1,2 +1,15 @@
-<h1>首頁管理系統</h1>
-<input type="text">
+<h1>首頁管理</h1>
+<script>
+    loadingMain();
+</script>
+<form action="" method="post" enctype="multipart/form-data">
+      <div><img id="Avatar" class="Avatar" src="./img/Avatar-01.jpg" onclick="chkAvatar()"></div>
+      <div style="display: none;"><input type="file" class="AvatarInput" id="File-input" name="" onchange="readURL(this)"></div>
+      <div class="mt-3"><input type="text" class="text1" id="text1"></div>
+      <div class="mt-3"><input type="text" class="text2" id="text2"></div>
+      <hr>
+      <div class="mt-3"><textarea id="text3" cols="30" rows="2"></textarea></div>
+      <div class="mt-3"><input type="button" class="b-touch btn btn-outline-secondary" value="確認修改"></div>
+
+</form>
+ 

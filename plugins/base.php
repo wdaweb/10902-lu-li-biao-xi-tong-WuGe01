@@ -59,7 +59,7 @@ class DB
         }
 
         //echo $sql;
-        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetch();
     }
 
 //計算筆數
@@ -139,6 +139,6 @@ function to($url)
 {
     header("location:" . $url);
 }
-
 $log=new DB('res_log');
+
 ?>

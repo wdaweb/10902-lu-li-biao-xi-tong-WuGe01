@@ -45,3 +45,34 @@ function logOut() {
     window.location.replace('./index.html');
     $.get("./api/logOut.php",{},function () {})
 }
+function chkAvatar() {
+    document.querySelector('#File-input').click();
+  }
+function readURL(input) {
+    if (input.files && input.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        let img = document.querySelector('#Avatar');
+        img.src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+    
+}
+function updateMain() {
+    let photo = document.querySelector("#File-input");
+    if (photo.files && photo.files[0]) {
+        console.log(photo.files[0].name);
+    }
+}
+function loadingMain() {
+    $.get("./api/loadingMain.php",{},function (e) {
+        let str=new Array(e);
+        $("#text1").val(str[0]['text1']);
+        $("#text2").val(str[0]['text2']);
+        $("#text3").val(str[0]['text3']);
+    }, 'json')
+    $.get("./api/loadingMainImg.php",{},function (e) {
+        document.querySelector("#Avatar").src=`./img/${e}`;
+    })
+}
