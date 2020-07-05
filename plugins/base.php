@@ -59,7 +59,7 @@ class DB
         }
 
         //echo $sql;
-        return $this->pdo->query($sql)->fetch();
+        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
 //計算筆數

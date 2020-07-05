@@ -34,7 +34,7 @@ body {
 .back {
   z-index: -2;
   background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)),
-    url(./img/home.jpg);
+    url(./backimg/home.jpg);
   background-size: cover;
   position: absolute;
   height: 70vh;
@@ -44,7 +44,7 @@ body {
 .backend {
   z-index: -2;
   background: linear-gradient(rgba(50, 62, 74, 0.5), rgba(50, 62, 74, 0.5)),
-    url(./img/backend.jpg);
+    url(./backimg/backend.jpg);
   background-size: cover;
   position: absolute;
   height: 70vh;

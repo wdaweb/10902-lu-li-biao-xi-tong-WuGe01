@@ -80,18 +80,18 @@ function SaveMain() {
     let text1=$("#text1").val();
     let text2=$("#text2").val();
     let text3=$("#text3").val();
-
-    console.log(text1)
-    console.log(text2)
-    console.log(text3)
+    $.get("./api/SaveMain.php",{text1,text2,text3},function () {
+        
+    })
 
     let photo = document.querySelector("#File-input");
     if (photo.files && photo.files[0]) {
-        if(photo.files[0].size > 100000)alert("檔案太大重新上傳");
+        // if(photo.files[0].size > 100000)alert("檔案太大重新上傳");
         let imgImg=photo.files[0].name;
+        let type=photo.files[0].type;
         let imgLink=$('#File-input').val();
+        $.post("./api/SaveMainImg.php",{imgImg,type,imgLink},function(e){
+            console.log(e)
+        })
     }
-    // $.post("./api/SaveMain.php",{},function(){
-
-    // })
 }
