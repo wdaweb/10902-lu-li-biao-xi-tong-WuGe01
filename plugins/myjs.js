@@ -83,15 +83,15 @@ function SaveMain() {
     $.get("./api/SaveMain.php",{text1,text2,text3},function () {
         
     })
-
-    let photo = document.querySelector("#File-input");
-    if (photo.files && photo.files[0]) {
-        // if(photo.files[0].size > 100000)alert("檔案太大重新上傳");
-        let imgImg=photo.files[0].name;
-        let type=photo.files[0].type;
-        let imgLink=$('#File-input').val();
-        $.post("./api/SaveMainImg.php",{imgImg,type,imgLink},function(e){
-            console.log(e)
-        })
-    }
 }
+function getMain() {
+    $.get("./api/getMainImg.php",{},function (e) {
+        let str=new Array(e);
+        console.log(str[0]['name'])
+        document.querySelector('#myhead').src=`./img/${str[0]['name']}`
+        $('#Btext1').html(str[0]['text1'])
+        $('#Btext2').html(str[0]['text2'])
+        $('#Btext3').html(str[0]['text3'])
+    },'json')
+    console.log('jj')
+}   
