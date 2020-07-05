@@ -11,23 +11,3 @@
         </div>
 </form>
 </div>
-<script>
-    
-    $('.main').animate({
-    width:"200px",height:"100px"
-    },1000)
-
-    function sendFrom() {
-        let acc = $('#acc').val();
-        let pw = $('#pw').val();
-      
-        if(acc!="" && pw!="") {
-            console.log(acc,pw)
-            $.post('./api/controlCenter.php',{acc,pw}function (e) {
-                console.log(e)
-            })
-        }else{
-            alert("請填寫完整的帳號與密碼")
-        }
-    }
-</script>

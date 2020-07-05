@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./plugins//bootstrap.css">
     <link rel="stylesheet" href="mystyle.css">
     <script src="./plugins/jquery-3.5.1.js"></script>
-
+    <script src="./plugins/myjs.js"></script>
+    <script>showMain('main');</script>
     <title>我的電子履歷表</title>
 </head>
 
@@ -17,18 +18,18 @@
     <header>
         <div class="header">
             <div class="conTain">
-                <a onclick="showMain('main')"><img class="b-touch headerIn" src="./img/logo-01.png"></a>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('log')"
+                <a onclick="showMain('main'),openMain()"><img class="b-touch headerIn" src="./img/logo-01.png"></a>
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="changeSession(),showMain('log')"
                    >後台</button>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('tel')"
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('tel'),openMain()"
                    >聯繫</button>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('art')"
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('art'),openMain()"
                    >作品</button>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('exp')"
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('exp'),openMain()"
                    >經歷</button>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('skill')"
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('skill'),openMain()"
                   >技能</button>
-                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('res')"
+                <button class="headerWord b-touch btn btn-outline-secondary" style="border: 0px;" onclick="showMain('res'),openMain()"
                    >自傳</button>
             </div>
         </div>
@@ -42,7 +43,6 @@
         </div>
     </div>
 
-    <script src="./plugins/myjs.js"></script>
 </body>
 
 </html>
