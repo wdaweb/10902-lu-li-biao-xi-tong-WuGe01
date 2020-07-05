@@ -140,5 +140,7 @@ function to($url)
     header("location:" . $url);
 }
 $log=new DB('res_log');
+$img=new DB('res_img');
+$main=new DB('res_main');
 
 ?>

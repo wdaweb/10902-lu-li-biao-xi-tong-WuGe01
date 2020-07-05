@@ -9,6 +9,7 @@ body {
 }
 .b-touch {
   pointer-events: all !important;
+  cursor: pointer;
 }
 .big_dady {
   width: 100vw;
