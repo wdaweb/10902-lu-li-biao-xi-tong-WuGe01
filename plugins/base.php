@@ -142,5 +142,7 @@ function to($url)
 $log=new DB('res_log');
 $img=new DB('res_img');
 $main=new DB('res_main');
+$res=new DB('res_res');
+$resimg=new DB('res_resimg');
 
 ?>

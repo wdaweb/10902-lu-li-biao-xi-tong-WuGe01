@@ -76,6 +76,16 @@ function loadingMain() {
         document.querySelector("#Avatar").src=`./img/${e}`;
     })
 }
+function loadingRes() {
+    $.get("./api/loadingRes.php",{},function (e) {
+        let str=new Array(e);
+        $("#text").val(str[0]['text']);
+        $("#title").val(str[0]['title']);
+    }, 'json')
+    $.get("./api/loadingResImg.php",{},function (e) {
+        document.querySelector("#Avatar").src=`./img2/${e}`;
+    })
+}
 function SaveMain() {
     let text1=$("#text1").val();
     let text2=$("#text2").val();
@@ -84,14 +94,28 @@ function SaveMain() {
         
     })
 }
+function SaveRes() {
+    let title=$("#title").val();
+    let text=$("#text").val();
+    $.get("./api/SaveRes.php",{title,text},function () {
+        
+    })
+}
 function getMain() {
     $.get("./api/getMainImg.php",{},function (e) {
         let str=new Array(e);
-        console.log(str[0]['name'])
         document.querySelector('#myhead').src=`./img/${str[0]['name']}`
         $('#Btext1').html(str[0]['text1'])
         $('#Btext2').html(str[0]['text2'])
         $('#Btext3').html(str[0]['text3'])
     },'json')
-    console.log('jj')
+
+}   
+function getRes() {
+    $.get("./api/getResImg.php",{},function (e) {
+        let str=new Array(e);
+        document.querySelector('#mylife').src=`./img2/${str[0]['name']}`
+        $('#text').html(str[0]['text'])
+        $('#title').html(str[0]['title'])
+    },'json')
 }   
