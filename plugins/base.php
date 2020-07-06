@@ -144,5 +144,6 @@ $img=new DB('res_img');
 $main=new DB('res_main');
 $res=new DB('res_res');
 $resimg=new DB('res_resimg');
+$skill=new DB('res_skill');
 
 ?>

@@ -12,14 +12,13 @@
       <div class="mt-3"><textarea id="text3" class="b-touch" cols="30" rows="2"></textarea></div>
       <div class="mt-3"><input type="button" id="upload"  class="b-touch btn btn-outline-secondary" value="確認修改" onclick="SaveMain()"></div>
  <script>
-
  $('#upload').on('click', function() {
   let photo = document.querySelector("#File-input");
   if((photo.files && photo.files[0])){
     var file_data = $('#File-input').prop('files')[0];
       var form_data = new FormData();
       form_data.append('file', file_data);   
-  
+
       $.ajax({
               url: './api/SaveMainImg.php',
               cache: false,
@@ -28,12 +27,8 @@
               data: form_data,                
               type: 'post',
               success: function (e) {
-              console.log(e);
-              console.log('good');
               },
               error: function (e) {
-              console.log(e);
-              console.log('bed');
               },
        });
   }    

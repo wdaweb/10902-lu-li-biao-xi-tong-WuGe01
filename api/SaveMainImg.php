@@ -1,6 +1,5 @@
 <?php
 include_once "../plugins/base.php";
-print_r($_FILES);
 if($_FILES['file']['error'] == 0){
     switch ($_FILES['file']['type']) {
         case 'image/jpeg':

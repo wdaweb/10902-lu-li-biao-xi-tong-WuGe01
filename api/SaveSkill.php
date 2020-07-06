@@ -1,6 +1,10 @@
 <?php
 include_once "../plugins/base.php";
+$title=$_POST['title'];
+$text=$_POST['text'];
+$power=$_POST['power'];
 if($_FILES['file']['error'] == 0){
+
     switch ($_FILES['file']['type']) {
         case 'image/jpeg':
             $imgType='.jpg';
@@ -13,12 +17,16 @@ if($_FILES['file']['error'] == 0){
             break;
     }
     $imgName=$_FILES['file']['name'];
-    move_uploaded_file($_FILES['file']['tmp_name'],"../img/".$imgName);
+    move_uploaded_file($_FILES['file']['tmp_name'],"../Skillimg/".$imgName);
     $date=[
-        'id'=>'1',
         'name'=> $imgName,
+        'title'=> $title,
+        'text'=> $text,
+        'power'=> $power,
         'type'=> $_FILES['file']['type']
     ];
-    $resimg->save($date);
+    $skill->save($date);
 }
+
+
 ?>
