@@ -122,6 +122,11 @@ body {
   pointer-events: all !important;
 
 }
+.resText{
+  line-height: 2rem;
+  font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
 @media (min-width: 576px) {
   .conTain {
     max-width: 540px;
