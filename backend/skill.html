@@ -19,7 +19,7 @@
 <div id="flag" class="row"></div>
 <div>
   <input class="b-touch btn btn-outline-secondary" onclick="showSkillVal(0)" type="button" value="<">
-  <input type="hidden" id="startpage" value="4">
+  <input type="hidden" id="startpage" value="3">
   <input class="b-touch btn btn-outline-secondary" onclick="showSkillVal(1)" type="button" value=">">
 </div>
 <script>
@@ -29,14 +29,14 @@ function showSkillVal(e) {
   if(e==1)aa++;
   if(e==0)aa--;
   $.get("./api/countSkill.php",{},function (k) {
-  if(aa<4)aa=4;
-  if(aa>k-1)aa=k-1;
+  if(aa<3)aa=3;
+  if(aa>k)aa=k;
   $('#startpage').val(`${aa}`);
   if(e==0){
-    $(`#showSkill${aa-4}`).show()
-    $(`#showSkill${aa}`).hide()
+    $(`#showSkill${aa-2}`).show()
+    $(`#showSkill${aa+1}`).hide()
   }else{
-    $(`#showSkill${aa-4}`).hide()
+    $(`#showSkill${aa-3}`).hide()
     $(`#showSkill${aa}`).show()
   }
   })
@@ -49,7 +49,7 @@ function showSkill() {
         start=end;
       }
       if(start<1)start=1;
-      for (let i = start; i <= k; i++) {
+      for (let i = start*1+1; i <= k; i++) {
           $(`#showSkill${i}`).hide()
 
       }
