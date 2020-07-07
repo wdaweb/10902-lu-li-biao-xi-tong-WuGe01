@@ -10,25 +10,21 @@
 </div>
 </div>
 <hr id="flag">
-<div class='row align-content-center'>
-<div class='col' style="width: 100px;"><img class=skillimg' src='./Skillimg/CSS-01.png' ></div>
-<p class='col' style="width: 100px;">CSS</p>
-<span class='col'>CSS 網頁樣式表，可彈性自定變化網頁元素顯示樣貌，節省工作時間。</span>
-<strong class='col' style="width: 50px;">80</strong>
-<div class='col' style='width: 50px;'>
-  <input class='b-touch btn btn-outline-secondary' type='button' id='fix' value='修改'>
-</div>
-<div class='col' style='width: 50px;'>
-<input class='b-touch btn btn-outline-secondary' type='button' id='del' value='刪除'>
-</div>
 <script>
-
-    function getBSkill() {
-
-      // $.('#flag').prepend();
+    getBSkill()
+    function fixSkill(e) {
+      
     }
-
-
+    function delSkill(id) {
+    $.get("./api/api/delSkill.php",{id},function (e) {
+      getBSkill()
+    })
+    }
+    function getBSkill() {
+    $.get("./api/api/getBSkill.php",{},function (e) {
+       $.('#flag').prepend(e);
+    })
+    }  
     $('#upload').on('click', function() {
      let photo = document.querySelector("#File-input");
      if(photo.files && photo.files[0] && $('#title').val() && $('#text').val()){
@@ -54,4 +50,4 @@
           });
      }    
    });
-    </script>
+</script>

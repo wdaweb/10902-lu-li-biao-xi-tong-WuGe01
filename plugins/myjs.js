@@ -118,4 +118,5 @@ function getRes() {
         $('#text').html(str[0]['text'])
         $('#title').html(str[0]['title'])
     },'json')
-}   
+}
+   
