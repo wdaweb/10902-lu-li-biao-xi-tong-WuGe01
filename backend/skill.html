@@ -24,37 +24,4 @@
 </div>
 <script>
 showSkill() 
-function showSkillVal(e) {
-  let aa=$('#startpage').val();
-  if(e==1)aa++;
-  if(e==0)aa--;
-  $.get("./api/countSkill.php",{},function (k) {
-  if(aa<3)aa=3;
-  if(aa>k)aa=k;
-  $('#startpage').val(`${aa}`);
-  if(e==0){
-    $(`#showSkill${aa-2}`).show()
-    $(`#showSkill${aa+1}`).hide()
-  }else{
-    $(`#showSkill${aa-3}`).hide()
-    $(`#showSkill${aa}`).show()
-  }
-  })
-}
-function showSkill() {
-  let start=$('#startpage').val();
-  $.get("./api/countSkill.php",{},function (k) {
-      let end=k*1-3;
-      if(start>end){
-        start=end;
-      }
-      if(start<1)start=1;
-      for (let i = start*1+1; i <= k; i++) {
-          $(`#showSkill${i}`).hide()
-
-      }
-  })
-  
-}
-
 </script>
