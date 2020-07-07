@@ -29,11 +29,16 @@ function showSkillVal(e) {
   if(e==1)aa++;
   if(e==0)aa--;
   $.get("./api/countSkill.php",{},function (k) {
-  if(aa<1)aa=1;
-  if(aa>k)aa=k;
+  if(aa<4)aa=4;
+  if(aa>k-1)aa=k-1;
   $('#startpage').val(`${aa}`);
-  document.querySelector(`#showSkill${e}`).style='';
-  document.querySelector(`#showSkill${e-3}`).style="display:none;";
+  if(e==0){
+    $(`#showSkill${aa-4}`).show()
+    $(`#showSkill${aa}`).hide()
+  }else{
+    $(`#showSkill${aa-4}`).hide()
+    $(`#showSkill${aa}`).show()
+  }
   })
 }
 function showSkill() {
@@ -45,7 +50,8 @@ function showSkill() {
       }
       if(start<1)start=1;
       for (let i = start; i <= k; i++) {
-            document.querySelector(`#showSkill${i}`).style.display="none";
+          $(`#showSkill${i}`).hide()
+
       }
   })
   
