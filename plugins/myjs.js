@@ -1,3 +1,93 @@
+function fixnows() {    
+      let photo = document.querySelector("#Fix-input");
+      let form_data = new FormData();
+      if(photo.files && photo.files[0]){
+          let file_data = $('#Fix-input').prop('files')[0];
+          form_data.append('file', file_data);   
+      }
+          form_data.append('title', $('#fixtitle').val());   
+          form_data.append('text', $('#fixtext').val());   
+          form_data.append('power', $('#fixpower').val());   
+          form_data.append('id', $('#fixhidden').val());   
+          $.ajax({
+                  url: './api/fixSkill.php',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                
+                  type: 'post',
+                  success: function () {
+                      alert("修正成功");
+                      getBSkill()
+                  },
+                  error: function () {
+                     alert("錯誤：請確認黨格式與確實填寫");
+                  },
+           });
+}
+function addSkill() {
+    let photo = document.querySelector("#File-input");
+    if(photo.files && photo.files[0] && $('#title').val() && $('#text').val() && $('#power').val()){
+     let file_data = $('#File-input').prop('files')[0];
+     let form_data = new FormData();
+        form_data.append('file', file_data);   
+        form_data.append('title', $('#title').val());   
+        form_data.append('text', $('#text').val());   
+        form_data.append('power', $('#power').val());   
+        $.ajax({
+                url: './api/SaveSkill.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                
+                type: 'post',
+                success: function () {
+                    alert("新增成功");
+                    getBSkill()
+                },
+                error: function () {
+                   alert("錯誤：請確認黨格式與確實填寫");
+                },
+         });
+    }        
+}
+function fixSkill(e) {
+    let src=document.querySelector(`#inSkillimg${e}`).src;
+    let title=document.querySelector(`#Skilltitle${e}`).innerText;
+    let text=document.querySelector(`#Skilltext${e}`).innerText;
+    let power=document.querySelector(`#Skillpower${e}`).innerText;
+    $(`#Skillimg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput skillimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);
+    $(`#Skilltitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
+    $(`#Skilltext${e}`).html(`<input type="text" class="b-touch" id="fixtext" value="${text}">`);
+    $(`#Skillpower${e}`).html(`<input type="number" min="0" max="100" class="b-touch" id="fixpower" value="${power}">`);
+    $(`#Skillbthc${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='getBSkill()' value='取消'><input type="hidden" id="fixhidden" value='${e}'>`);  
+    $(`#Skillbtn${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='fixnows()' id='fixupload' value='確認'>`);
+}
+function readFixURL(input) {
+    if (input.files && input.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        let img = document.querySelector('#fiximg');
+        img.src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+    
+}
+function chkfix() {
+    document.querySelector('#Fix-input').click();
+}
+function delSkill(id) {
+$.get("./api/delSkill.php",{id},function (e) {
+  getBSkill()
+})
+}
+function getBSkill() {
+    $('#flag').html("");
+$.get("./api/getBSkill.php",{},function (e) {
+    $('#flag').prepend(e);
+})
+} 
 function showMain(e) {
 
     $.get(`./client/${e}.html`, {}, (text) => {
@@ -47,7 +137,7 @@ function logOut() {
 }
 function chkAvatar() {
     document.querySelector('#File-input').click();
-  }
+}
 function readURL(input) {
     if (input.files && input.files[0]) {
       let reader = new FileReader();
