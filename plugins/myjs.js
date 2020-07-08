@@ -1,3 +1,17 @@
+function FGetSkillVal() {
+    $.get("./api/countSkill.php",{},function (k) {
+        for (let i = 7; i < k+1; i++) {
+          $(`#skillcard${i}`).hide()        
+        }
+    })  
+}
+function getSkill() {
+    $('#flag').html("");
+    $.get("./api/getSkill.php",{},function (e) {
+        $('#flag').prepend(e);
+        
+    })
+}
 function showSkill() {
     let start=$('#startpage').val();
     $.get("./api/countSkill.php",{},function (k) {
@@ -240,5 +254,23 @@ function getRes() {
         $('#text').html(str[0]['text'])
         $('#title').html(str[0]['title'])
     },'json')
+}
+function GetSkillVal(e) {
+    let val=$('#startpage').val();
+    if(e==0){
+      val--;
+      if(val<6)val=6;
+      $(`#skillcard${val-5}`).show() 
+      $(`#skillcard${val+1}`).hide() 
+      $('#startpage').val(val)
+    }else{
+      val++;
+      $.get("./api/countSkill.php",{},function (k) {
+      if(val>k)val=k;
+      $(`#skillcard${val}`).show() 
+      $(`#skillcard${val-6}`).hide()  
+      $('#startpage').val(val)
+      }) 
+    }
 }
    
