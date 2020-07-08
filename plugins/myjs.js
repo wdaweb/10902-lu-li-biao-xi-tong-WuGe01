@@ -5,6 +5,33 @@ function getExp() {
       })
       
 }
+function addArt() {
+      let photo = document.querySelector("#File-input");
+      if(photo.files && photo.files[0] && $('#title').val() && $('#text').val() && $('#linkArt').val()){
+       let file_data = $('#File-input').prop('files')[0];
+       let form_data = new FormData();
+          form_data.append('file', file_data);   
+          form_data.append('title', $('#title').val());   
+          form_data.append('text', $('#text').val());   
+          form_data.append('link', $('#linkArt').val());   
+          form_data.append('showArt',document.querySelector('#showArt').checked);   
+          $.ajax({
+                  url: './api/SaveArt.php',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                
+                  type: 'post',
+                  success: function (e) {
+                      alert("新增成功");
+                      console.log(e)
+                  },
+                  error: function () {
+                     alert("錯誤：請確認黨格式與確實填寫");
+                  },
+           });
+      }        
+}
 function addExp() {
       let photo = document.querySelector("#File-input");
       if(photo.files && photo.files[0] && $('#title').val() && $('#text').val() && $('#time').val()){
@@ -24,7 +51,7 @@ function addExp() {
                   type: 'post',
                   success: function (e) {
                       alert("新增成功");
-                      console.log(e)
+                      getExp()
                   },
                   error: function () {
                      alert("錯誤：請確認黨格式與確實填寫");

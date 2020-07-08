@@ -1,1 +1,29 @@
-<h1>這是作品集</h1>
+<div style="display: none;"><input type="file" class="AvatarInput skillimg" id="File-input" name="img" onchange="readURL(this)"></div>
+<table style="width: 100%;" class="mt-3">
+<tr>
+  <td>縮圖</td>
+  <td>作品名稱</td>
+  <td>說明</td>
+  <td>連結</td>
+  <td>顯示</td>
+  <td></td>
+</tr>
+<tr>
+  <td><img onclick="chkAvatar()" src="./backimg/Avatar-01.jpg" style="width: 120px;height: 90px;" class="b-touch" id="Avatar"></td>
+  <td><input type="text" class="b-touch" id="title"></td>
+  <td><textarea id="text" class="b-touch" cols="30" rows="2"></textarea></td>
+  <td><input type="text" class="b-touch" id="linkArt"></td>
+  <td><input class="b-touch btn btn-outline-secondary" type="checkbox" name="showArt" id="showArt" value="1"></td>
+  <td><input class="b-touch btn btn-outline-secondary" type="button" onclick="addArt()" id="upload" value="新增"></td>
+</tr>
+</table>
+<hr>
+<div id="flag" class="row"></div>
+<div>
+  <input class="b-touch btn btn-outline-secondary" onclick="showArtVal(0)" type="button" value="<">
+  <input type="hidden" id="startpage" value="3">
+  <input class="b-touch btn btn-outline-secondary" onclick="showArtVal(1)" type="button" value=">">
+</div>
+<script>
+  
+</script>
