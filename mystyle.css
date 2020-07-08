@@ -1,6 +1,10 @@
 * , .mainText{
   font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
 }
+.Artimg{
+  width: 120px;
+  height: 90px;
+}
 .ExpPre{
   font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
   font-size: medium;

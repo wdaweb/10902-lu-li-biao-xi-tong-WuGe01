@@ -25,5 +25,14 @@
   <input class="b-touch btn btn-outline-secondary" onclick="showArtVal(1)" type="button" value=">">
 </div>
 <script>
-  
+
+new Promise((resolve, reject) => {
+    resolve();
+})
+.then(() => {     
+    getBArt()
+})
+.then(() => {
+    hideArt();
+});
 </script>

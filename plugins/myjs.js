@@ -5,6 +5,21 @@ function getExp() {
       })
       
 }
+function hideArt() {
+    $.get("./api/countArt.php",{},function (e) {
+      for (let i = 4; i <= e; i++) {
+        $(`#showArt${i}`).hide();
+        
+      }
+    })
+}
+function getBArt() {
+    $('#flag').html("");
+      $.get("./api/getBArt.php",{},function (e) {
+          $('#flag').prepend(e);
+      })
+      
+}
 function addArt() {
       let photo = document.querySelector("#File-input");
       if(photo.files && photo.files[0] && $('#title').val() && $('#text').val() && $('#linkArt').val()){
@@ -100,6 +115,24 @@ function showExp(ee) {
           }
         }) 
  }
+function showArtVal(e) {
+    let KK=$('#startpage').val();
+    $.get("./api/countArt.php",{},function (k) {
+      if(e==0){
+        KK--
+        if(KK<3)KK=3
+        $(`#showArt${KK+1}`).hide()
+        $(`#showArt${KK-2}`).show()
+      }else{
+        KK++
+        if(KK>k)KK=k
+        $(`#showArt${KK-3}`).hide()
+        $(`#showArt${KK}`).show()
+      }
+      $('#startpage').val(KK);
+    })
+    
+}
 function showSkill() {
     let start=$('#startpage').val();
     $.get("./api/countSkill.php",{},function (k) {
@@ -254,8 +287,7 @@ function fixExp(e) {
   console.log(Xtime)
   let sh=(document.querySelector(`#sh${e}`).value)?'checked':'';
   console.log(sh)
-  $(`#Expg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Expimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`)
-  
+  $(`#Expg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Expimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);  
   $(`#Exptitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
   $(`#Extext${e}`).html(`<textarea id="fixtext" class="b-touch" cols="30" rows="6">${text}</div>`);
   $(`#Exptime${e}`).html(`<input type="text" class="b-touch" id="fixtime" value="${Xtime}">`);
@@ -292,6 +324,11 @@ function chkfix() {
 function delSkill(id) {
 $.get("./api/delSkill.php",{id},function (e) {
   getBSkill()
+})
+}
+function delArt(id) {
+$.get("./api/delArt.php",{id},function (e) {
+  getBArt()
 })
 }
 function delExp(id) {
