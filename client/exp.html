@@ -1,1 +1,21 @@
-<h1>前端經歷</h1>
+<h2 class="mt-2">個人經歷</h2>
+<div id="flag" class="row mt-5"></div>
+<div class="mt-5">
+    <input class="b-touch btn btn-outline-secondary" onclick="GetExpVal(0)" type="button" value="<">
+    <input type="hidden" id="startpage" value="6">
+    <input class="b-touch btn btn-outline-secondary" onclick="GetExpVal(1)" type="button" value=">">
+</div>
+<script>
+getAExp()
+function getAExp() {
+    $('#flag').html("");
+    $.get("./api/getAExp.php",{},function (e) {
+        $('#flag').prepend(e);
+    })
+    $.get("./api/countSkill.php",{},function (k) {
+        for (let i = 7; i < k+1; i++) {
+          $(`#skillcard${i}`).hide()        
+        }
+    })
+}
+</script>
