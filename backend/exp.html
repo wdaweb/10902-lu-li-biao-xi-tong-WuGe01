@@ -1,19 +1,31 @@
 <div style="display: none;"><input type="file" class="AvatarInput skillimg" id="File-input" name="img" onchange="readURL(this)"></div>
 <table style="width: 100%;" class="mt-3">
 <tr>
-  <td></td>
-  <td>技能名稱</td>
-  <td>技能內容</td>
-  <td>技能指數</td>
+  <td>ICON</td>
+  <td>名稱</td>
+  <td>內容</td>
+  <td>期間</td>
+  <td>顯示</td>
   <td></td>
 </tr>
 <tr>
   <td><img onclick="chkAvatar()" src="./backimg/Avatar-01.jpg" style="width: 100px;height: 100px;" class="b-touch" id="Avatar"></td>
   <td><input type="text" class="b-touch" id="title"></td>
   <td><textarea id="text" class="b-touch" cols="30" rows="2"></textarea></td>
-  <td><input type="number" class="b-touch" id="power"  min="0" max="100"></td>
-  <td><input class="b-touch btn btn-outline-secondary" type="button" onclick="" id="upload" value="新增"></td>
+  <td><input type="text" class="b-touch" id="time"></td>
+  <td><input class="b-touch btn btn-outline-secondary" type="radio" onclick="" id="showExp"></td>
+  <td><input class="b-touch btn btn-outline-secondary" type="button" onclick="addExp()" id="upload" value="新增"></td>
 </tr>
 </table>
 <hr>
 <div id="flag" class="row"></div>
+<div>
+  <input class="b-touch btn btn-outline-secondary" onclick="" type="button" value="<">
+  <input type="hidden" id="startpage" value="3">
+  <input class="b-touch btn btn-outline-secondary" onclick="" type="button" value=">">
+</div>
+<script>
+function addExp(params) {
+  
+}
+</script>

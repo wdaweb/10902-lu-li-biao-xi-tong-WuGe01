@@ -9,7 +9,6 @@ function getSkill() {
     $('#flag').html("");
     $.get("./api/getSkill.php",{},function (e) {
         $('#flag').prepend(e);
-        
     })
 }
 function showSkill() {
