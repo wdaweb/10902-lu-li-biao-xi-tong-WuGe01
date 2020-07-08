@@ -145,5 +145,6 @@ $main=new DB('res_main');
 $res=new DB('res_res');
 $resimg=new DB('res_resimg');
 $skill=new DB('res_skill');
+$exp=new DB('res_exp');
 
 ?>

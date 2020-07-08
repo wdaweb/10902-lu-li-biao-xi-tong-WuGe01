@@ -1,14 +1,12 @@
-function FGetSkillVal() {
-    $.get("./api/countSkill.php",{},function (k) {
-        for (let i = 7; i < k+1; i++) {
-          $(`#skillcard${i}`).hide()        
-        }
-    })  
-}
 function getSkill() {
     $('#flag').html("");
     $.get("./api/getSkill.php",{},function (e) {
         $('#flag').prepend(e);
+    })
+    $.get("./api/countSkill.php",{},function (k) {
+        for (let i = 7; i < k+1; i++) {
+          $(`#skillcard${i}`).hide()        
+        }
     })
 }
 function showSkill() {
