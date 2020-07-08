@@ -5,6 +5,7 @@
   font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
   font-size: medium;
   margin-top: 2px;
+  text-align: left;
 }
 .mainText{
   font-weight: bold;
@@ -16,7 +17,7 @@
   margin-left: -3px;
   margin-top: -3px;
 }
-.skillimg{
+.skillimg, .Expimg{
   width: 100px;
   height: 100px;
 }

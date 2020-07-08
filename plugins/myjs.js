@@ -1,3 +1,37 @@
+function getExp() {
+    $('#flag').html("");
+      $.get("./api/getExp.php",{},function (e) {
+          $('#flag').prepend(e);
+      })
+      
+}
+function addExp() {
+      let photo = document.querySelector("#File-input");
+      if(photo.files && photo.files[0] && $('#title').val() && $('#text').val() && $('#time').val()){
+       let file_data = $('#File-input').prop('files')[0];
+       let form_data = new FormData();
+          form_data.append('file', file_data);   
+          form_data.append('title', $('#title').val());   
+          form_data.append('text', $('#text').val());   
+          form_data.append('time', $('#time').val());   
+          form_data.append('showExp', $('#showExp').val());   
+          $.ajax({
+                  url: './api/SaveExp.php',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                
+                  type: 'post',
+                  success: function (e) {
+                      alert("新增成功");
+                      console.log(e)
+                  },
+                  error: function () {
+                     alert("錯誤：請確認黨格式與確實填寫");
+                  },
+           });
+      }        
+}
 function getSkill() {
     $('#flag').html("");
     $.get("./api/getSkill.php",{},function (e) {
@@ -94,6 +128,55 @@ function addSkill() {
          });
     }        
 }
+function fixnowsExp() {    
+    let photo = document.querySelector("#Fix-input");
+    let form_data = new FormData();
+    if(photo.files && photo.files[0]){
+        let file_data = $('#Fix-input').prop('files')[0];
+        form_data.append('file', file_data);   
+    }
+        form_data.append('title', $('#fixtitle').val());   
+        form_data.append('text', $('#fixtext').val());   
+        form_data.append('time', $('#fixtime').val());   
+        form_data.append('sh', $('#fixsh').val());   
+        form_data.append('id', $('#fixhidden').val());   
+        $.ajax({
+                url: './api/fixExp.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                
+                type: 'post',
+                success: function () {
+                    alert("修正成功");
+                    getExp()
+                },
+                error: function () {
+                   alert("錯誤：請確認黨格式與確實填寫");
+                },
+         });
+}
+function fixExp(e) {
+
+  let src=document.querySelector(`#inExpimg${e}`).src;
+
+  let title=document.querySelector(`#Exptitle${e}`).innerText;
+  console.log(title)
+  let text=document.querySelector(`#Exptext${e}`).innerText;
+  console.log(text)
+  let Xtime=document.querySelector(`#Exptime${e}`).innerHTML;
+  console.log(Xtime)
+  let sh=(document.querySelector(`#sh${e}`).value)?'checked':'';
+  console.log(sh)
+  $(`#Expg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Expimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`)
+  
+  $(`#Exptitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
+  $(`#Extext${e}`).html(`<textarea id="fixtext" class="b-touch" cols="30" rows="6">${text}</div>`);
+  $(`#Exptime${e}`).html(`<input type="text" class="b-touch" id="fixtime" value="${Xtime}">`);
+  $(`#Expsh${e}`).html(`<input type="radio"  class="b-touch" id="fixsh" value="1" ${sh}>`) ;
+  $(`#Expbthc${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='getExp()' value='取消'><input type="hidden" id="fixhidden" value='${e}'>`);  
+  $(`#Expbtn${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='fixnowsExp()' id='fixupload' value='確認'>`);
+}
 function fixSkill(e) {
     let src=document.querySelector(`#inSkillimg${e}`).src;
     let title=document.querySelector(`#Skilltitle${e}`).innerText;
@@ -123,6 +206,11 @@ function chkfix() {
 function delSkill(id) {
 $.get("./api/delSkill.php",{id},function (e) {
   getBSkill()
+})
+}
+function delExp(id) {
+$.get("./api/delExp.php",{id},function (e) {
+  getExp()
 })
 }
 function getBSkill() {
