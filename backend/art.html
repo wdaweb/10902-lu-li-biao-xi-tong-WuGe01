@@ -31,7 +31,7 @@ function fixArt(e) {
     let title=document.querySelector(`#Arttitle${e}`).innerText;
     let text=document.querySelector(`#Arttext${e}`).innerText;
     let link=document.querySelector(`#Artlink${e}`).innerText;
-    $(`#Artimg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Artimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);
+    $(`#Artimg${e}`).html(`<img  onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Artimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);
     $(`#Arttitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
     $(`#Arttext${e}`).html(`<input type="text" class="b-touch" id="fixtext" value="${text}">`);
     $(`#Artlink${e}`).html(`<input type="text" class="b-touch" id="fixlink" value="${link}">`);
