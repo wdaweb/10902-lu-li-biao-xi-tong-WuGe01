@@ -43,6 +43,36 @@ function getSkill() {
         }
     })
 }
+function hideExp() {
+    $.get("./api/countExp.php",{},function (k) {
+      kk=k
+        for (let i = 2; i <= kk; i++) {
+          $(`#showExp${i}`).hide()
+        }
+      })    
+   
+}
+function showExp(ee) {      
+          vv=$('#startpage').val()
+          console.log(vv)
+          $.get("./api/countExp.php",{},function (k) {
+          if(ee==1){
+            vv++
+            if(vv>k)vv=k
+            $(`#showExp${vv-1}`).hide()
+            $(`#showExp${vv}`).show()
+            $('#startpage').val(vv)
+            console.log(vv)
+          }else if(ee==0){
+            vv--
+            if(vv<1)vv=1
+            $(`#showExp${vv+1}`).hide()
+            $(`#showExp${vv}`).show()
+            $('#startpage').val(vv)  
+            console.log(vv)
+          }
+        }) 
+ }
 function showSkill() {
     let start=$('#startpage').val();
     $.get("./api/countSkill.php",{},function (k) {
