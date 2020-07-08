@@ -8,7 +8,7 @@ $str=$str."<tr id='showExp".$e."'>
 <td style='width: 10%; id='Expimg".$row['id']."'><img id='inExpimg".$row['id']."' class=Expimg' src='./Expimg/".$row['name']."' ></td>
 <td style='width: 75%;>
 <div style='width: 95%; id='Exptitle".$row['id']."'>".$row['title']."</div>
-<div style='width: 95% id='Exptext".$row['id']."'>".$row['text']."</div>
+<div style='width: 95% id='Exptext".$row['id']."'><pre class='ExpPre'>".$row['text']."</pre></div>
 <div style='width: 95% id='Exptime".$row['id']."'>".$row['time']."</div>
 </td>
 <td style='width: 5%; id='Expsh".$row['id']."'><input class='b-touch btn btn-outline-secondary' type='radio' ></td>

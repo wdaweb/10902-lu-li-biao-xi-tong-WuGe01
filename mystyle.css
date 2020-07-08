@@ -1,6 +1,11 @@
 * , .mainText{
   font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
 }
+.ExpPre{
+  font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin-top: 2px;
+}
 .mainText{
   font-weight: bold;
   font-size: larger;
