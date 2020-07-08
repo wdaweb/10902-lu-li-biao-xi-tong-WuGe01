@@ -1,4 +1,4 @@
-<div style="display: none;"><input type="file" class="AvatarInput skillimg" id="File-input" name="img" onchange="readURL(this)"></div>
+<div style="display: none;"><input type="file" class="AvatarInput Artimg" id="File-input" name="img" onchange="readURL(this)"></div>
 <table style="width: 100%;" class="mt-3">
 <tr>
   <td>縮圖</td>
@@ -25,7 +25,48 @@
   <input class="b-touch btn btn-outline-secondary" onclick="showArtVal(1)" type="button" value=">">
 </div>
 <script>
-
+function fixArt(e) {
+    let src=document.querySelector(`#inArtimg${e}`).src;
+    console.log(src)
+    let title=document.querySelector(`#Arttitle${e}`).innerText;
+    let text=document.querySelector(`#Arttext${e}`).innerText;
+    let link=document.querySelector(`#Artlink${e}`).innerText;
+    $(`#Artimg${e}`).html(`<img onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Artimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);
+    $(`#Arttitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
+    $(`#Arttext${e}`).html(`<input type="text" class="b-touch" id="fixtext" value="${text}">`);
+    $(`#Artlink${e}`).html(`<input type="text" class="b-touch" id="fixlink" value="${link}">`);
+    $(`#Artbtn${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='fixnowsBArt()' id='fixupload' value='確認'>`);
+    $(`#Artbthc${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='getBArt()' value='取消'><input type="hidden" id="fixhidden" value='${e}'>`);  
+}
+function fixnowsBArt() {    
+      let photo = document.querySelector("#Fix-input");
+      let form_data = new FormData();
+      if(photo.files && photo.files[0]){
+          let file_data = $('#Fix-input').prop('files')[0];
+          form_data.append('file', file_data);   
+      }
+          form_data.append('title', $('#fixtitle').val());   
+          form_data.append('text', $('#fixtext').val());   
+          form_data.append('link', $('#fixlink').val());   
+          form_data.append('sh', $(`#Insh${$('#fixhidden').val()}`)[0].checked);   
+          form_data.append('id', $('#fixhidden').val());   
+          $.ajax({
+                  url: './api/fixArt.php',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                
+                  type: 'post',
+                  success: function (e) {
+                      alert("修正成功");
+                      getBArt()
+                      console.log(e)
+                  },
+                  error: function () {
+                     alert("錯誤：請確認黨格式與確實填寫");
+                  },
+           });
+}
 new Promise((resolve, reject) => {
     resolve();
 })
@@ -35,4 +76,5 @@ new Promise((resolve, reject) => {
 .then(() => {
     hideArt();
 });
+hideArt()
 </script>

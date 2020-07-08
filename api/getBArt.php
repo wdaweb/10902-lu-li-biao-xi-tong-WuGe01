@@ -8,8 +8,8 @@ $str=$str."<tr id='showArt".$e."'>
     <td id='Artimg".$row['id']."'><img id='inArtimg".$row['id']."' class='Artimg' src='./Artimg/".$row['name']."' ></td>
     <td id='Arttitle".$row['id']."'>".$row['title']."</td>
     <td id='Arttext".$row['id']."'>".$row['text']."</td>
-    <td id='Artpower".$row['id']."'>".$row['link']."</td>
-    <td id='Artbtn".$row['id']."'><input class='b-touch btn btn-outline-secondary' type='checkbox' ";
+    <td id='Artlink".$row['id']."'>".$row['link']."</td>
+    <td id='sh".$row['id']."'><input id='Insh".$row['id']."' class='b-touch btn btn-outline-secondary' type='checkbox' ";
     if($row['sh']==1){
         $str=$str."checked value='1'><input type='hidden' id='sh".$row['id']."' value='1'>";
     }else{
