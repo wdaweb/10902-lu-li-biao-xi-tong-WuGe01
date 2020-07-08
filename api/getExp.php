@@ -12,7 +12,7 @@ $str=$str."<tr id='showExp".$e."'>
 <div style='width: 95%;' id='Extext".$row['id']."'><pre class='ExpPre' id='Exptext".$row['id']."'>".$row['text']."</pre></div>
 <div style='width: 95%;' id='Exptime".$row['id']."'>".$row['time']."</div>
 </td>
-<td style='width: 5%;' id='Expsh".$row['id']."'><input class='b-touch btn btn-outline-secondary' type='radio'";
+<td style='width: 5%;' id='Expsh".$row['id']."'><input class='b-touch btn btn-outline-secondary' type='checkbox'";
 if($row['sh']==1){
     $str=$str."checked value='1'><input type='hidden' id='sh".$row['id']."' value='1'>";
 }else{

@@ -13,7 +13,7 @@ if($_FILES['file']['error'] == 0){
             break;
     }
     $imgName=$_FILES['file']['name'];
-    move_uploaded_file($_FILES['file']['tmp_name'],"../img/".$imgName);
+    move_uploaded_file($_FILES['file']['tmp_name'],"../img2/".$imgName);
     $date=[
         'id'=>'1',
         'name'=> $imgName,

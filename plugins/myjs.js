@@ -186,6 +186,35 @@ function fixnowsExp() {
                 },
          });
 }
+function getAExp() {
+    $('#flag').html("");
+    $.get("./api/getAExp.php",{},function (e) {
+        $('#flag').prepend(e);
+    })
+    $.get("./api/countExp.php",{},function (k) {
+        for (let i = 3; i < k+1; i++) {
+          $(`#Expcard${i}`).hide()        
+        }
+    })
+}
+function GetExpVal(e) {
+    let val=$('#startpage').val()
+    $.get("./api/countExp.php",{},function (k) {
+        if(e==0){
+            val--
+            if(val<2)val=2
+            $(`#Expcard${val}`).show()    
+            $(`#Expcard${val+2}`).hide()    
+        }else{
+            val++
+            if(val>k)val=k
+            $(`#Expcard${val-2}`).hide()   
+            $(`#Expcard${val}`).show()  
+        }
+        $('#startpage').val(val)
+        
+    })
+}
 function fixExp(e) {
 
   let src=document.querySelector(`#inExpimg${e}`).src;
@@ -203,7 +232,7 @@ function fixExp(e) {
   $(`#Exptitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
   $(`#Extext${e}`).html(`<textarea id="fixtext" class="b-touch" cols="30" rows="6">${text}</div>`);
   $(`#Exptime${e}`).html(`<input type="text" class="b-touch" id="fixtime" value="${Xtime}">`);
-  $(`#Expsh${e}`).html(`<input type="radio"  class="b-touch" id="fixsh" value="1" ${sh}>`) ;
+  $(`#Expsh${e}`).html(`<input type="checkbox"  class="b-touch" id="fixsh" value="1" ${sh}>`) ;
   $(`#Expbthc${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='getExp()' value='取消'><input type="hidden" id="fixhidden" value='${e}'>`);  
   $(`#Expbtn${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='fixnowsExp()' id='fixupload' value='確認'>`);
 }
