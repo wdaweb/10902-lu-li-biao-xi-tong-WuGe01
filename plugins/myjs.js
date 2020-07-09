@@ -11,6 +11,18 @@ function getExp() {
       })
       
 }
+function getArt() {
+    $('#flag').html("");
+    $.get("./api/getAArt.php",{},function (e) {
+        $('#flag').prepend(e);
+        $(".ArtSize").hide();
+        $(".ArtSize").each(function(i,v){
+            if(i<3){
+                $(v).show()
+            }
+        })
+    })
+}
 function getBArt() {
     $('#flag').html("");
       $.get("./api/getBArt.php",{},function (e) {

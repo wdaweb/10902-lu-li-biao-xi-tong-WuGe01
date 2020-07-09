@@ -192,6 +192,14 @@ background-color: white;
 .skillSize{
 width: 360px;
 }
+.ArtSize{
+  width: 320px;
+}
+.atext{
+  text-decoration: none;
+  color: #000;
+  pointer-events: all !important;
+}
 .artcard{
   margin-top: -30px;
     background-color: #1d7faf;
