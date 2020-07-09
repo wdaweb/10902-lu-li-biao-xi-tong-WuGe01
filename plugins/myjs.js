@@ -314,6 +314,24 @@ function GetExpVal(e) {
         
     })
 }
+function GetArtVal(e) {
+    let val=$('#startpage').val()
+    $.get("./api/countArt.php",{},function (k) {
+        if(e==0){
+            val--
+            if(val<3)val=3
+            $(`#Artcard${val-2}`).show()    
+            $(`#Artcard${val+1}`).hide()    
+        }else{
+            val++
+            if(val>k)val=k
+            $(`#Artcard${val-3}`).hide()   
+            $(`#Artcard${val}`).show()  
+        }
+        $('#startpage').val(val)
+        
+    })
+}
 function fixExp(e) {
 
   let src=document.querySelector(`#inExpimg${e}`).src;
