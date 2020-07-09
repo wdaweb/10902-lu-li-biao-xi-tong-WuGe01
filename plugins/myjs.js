@@ -102,6 +102,39 @@ function getSkill() {
         })
     })
 }
+function saveTel() {
+    let food=$('#food').val();
+    let word=$('#word').val();
+    let place=$('#place').val();
+    let tel=$('#tel').val();
+    let email=$('#email').val();
+    let telTime=$('#telTime').val();
+    $.post("./api/saveTel.php",{food,word,place,tel,email,telTime},function () {
+        getTel()
+    })
+}
+function getTel() {
+    $.get("./api/getTel.php",{},function (e) {
+        let str=new Array(e);
+        $("#food").val(str[0]['food']);
+        $("#word").val(str[0]['word']);
+        $("#place").val(str[0]['place']);
+        $("#tel").val(str[0]['tel']);
+        $("#email").val(str[0]['email']);
+        $("#telTime").val(str[0]['telTime']);
+    },"json")
+}
+function getATel() {
+    $.get("./api/getTel.php",{},function (e) {
+        let str=new Array(e);
+        $("#food").html(str[0]['food']);
+        $("#word").html(str[0]['word']);
+        $("#place").html(str[0]['place']);
+        $("#tel").html(str[0]['tel']);
+        $("#email").html(str[0]['email']);
+        $("#telTime").html(str[0]['telTime']);
+    },"json")
+}
 function fixArt(e) {
     let src=document.querySelector(`#inArtimg${e}`).src;
     console.log(src)
@@ -419,11 +452,6 @@ function showBMain(e) {
         $('#main').html(text);
     });
 }
-function closeMain() {    
-    $('.main').animate({
-    width:"200px",height:"100px"
-    },1000)
-}
 function changeSession() {
     $.get("./api/changeSession.php",{},function(e){
         if(e==1)window.location.replace('./backcontrol.html');
@@ -431,6 +459,11 @@ function changeSession() {
             closeMain();
         }
     })
+}
+function closeMain() {    
+    $('.main').animate({
+    width:"200px",height:"100px"
+    },1000)
 }
 function openMain() {
     $('.main').animate({

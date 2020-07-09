@@ -147,5 +147,6 @@ $resimg=new DB('res_resimg');
 $skill=new DB('res_skill');
 $exp=new DB('res_exp');
 $art=new DB('res_art');
+$tel=new DB('res_tel');
 
 ?>

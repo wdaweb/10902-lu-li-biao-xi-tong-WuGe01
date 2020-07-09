@@ -195,6 +195,35 @@ width: 360px;
 .ArtSize{
   width: 320px;
 }
+.telHeard{
+  background-color: cadetblue;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  width: 120px;
+  color: #fff;
+  box-shadow: 5px 5px 10px #CCC;
+
+
+}
+.telDad{
+  width: 530px;
+  margin: auto;
+  margin-top: 10px;
+  text-shadow: 5px 5px 10px #CCC;
+  
+}
+.tel{
+  box-shadow: 5px 5px 10px #CCC;
+  background-color: #eee;
+  margin-left: 30px;
+  width: 500px;
+  font-size: 24px;
+  height: 50px;
+  line-height: 50px;
+  pointer-events: all !important;
+
+}
 .atext{
   text-decoration: none;
   color: #000;
