@@ -456,19 +456,14 @@ function changeSession() {
     $.get("./api/changeSession.php",{},function(e){
         if(e==1)window.location.replace('./backcontrol.html');
         else{
-            closeMain();
+            openMain("200px","100px");
         }
     })
 }
-function closeMain() {    
+function openMain(a,b) {
     $('.main').animate({
-    width:"200px",height:"100px"
-    },1000)
-}
-function openMain() {
-    $('.main').animate({
-        width:"100%",height:"70vh"
-        },1000)
+        width:a,height:b
+        },500)
 }
 function sendFrom() {
     let acc = $('#acc').val();

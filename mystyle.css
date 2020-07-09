@@ -213,8 +213,12 @@ width: 360px;
   text-shadow: 5px 5px 10px #CCC;
   
 }
+.RESHEAD{
+  box-shadow: 5px 5px 15px #333;
+}
 .rescolor{
-  background-color: beige;
+  padding: 30px;
+  background-color: #EEE;
   border-radius: 5px;
 }
 .MainDiv{
