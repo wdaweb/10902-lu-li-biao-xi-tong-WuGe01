@@ -213,6 +213,16 @@ width: 360px;
   text-shadow: 5px 5px 10px #CCC;
   
 }
+.rescolor{
+  background-color: beige;
+  border-radius: 5px;
+}
+.MainDiv{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 90%;
+}
 .tel{
   box-shadow: 5px 5px 10px #CCC;
   background-color: #eee;
