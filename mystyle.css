@@ -104,6 +104,10 @@ body {
 .logTable {
   margin: auto;
 }
+.artimg{
+  width: 240px;
+  height: 180px;
+}
 .logDiv {
   position: absolute;
   left: 50%;
@@ -187,6 +191,16 @@ background-color: white;
 }
 .skillSize{
 width: 360px;
+}
+.artcard{
+  margin-top: -30px;
+    background-color: #1d7faf;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px #CCC;
 }
 .skillColor{
 background-color: white;

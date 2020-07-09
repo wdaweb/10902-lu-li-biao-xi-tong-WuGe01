@@ -4,7 +4,7 @@ $rows=$art->all();
 $str="<table style='width: 100%;'>";
 $e=1;
 foreach ($rows as $row) {
-$str=$str."<tr id='showArt".$e."'>
+$str=$str."<tr id='showArt".$e."' class='Arttr'>
     <td id='Artimg".$row['id']."'><img id='inArtimg".$row['id']."' class='Artimg' src='./Artimg/".$row['name']."' ></td>
     <td id='Arttitle".$row['id']."'>".$row['title']."</td>
     <td id='Arttext".$row['id']."'>".$row['text']."</td>

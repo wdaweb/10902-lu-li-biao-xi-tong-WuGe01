@@ -5,7 +5,7 @@ $str="<table style='width: 100%;'>";
 $e=1;
 foreach ($rows as $row) {
 
-$str=$str."<tr id='showExp".$e."'>
+$str=$str."<tr id='showExp".$e."' class='Exptr'>
 <td style='width: 10%;' id='Expg".$row['id']."'><img id='inExpimg".$row['id']."' class='Expimg' src='./Expimg/".$row['name']."' ></td>
 <td style='width: 75%;'>
 <div style='width: 95%;' id='Exptitle".$row['id']."'>".$row['title']."</div>

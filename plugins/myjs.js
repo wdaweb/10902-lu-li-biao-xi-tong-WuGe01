@@ -2,21 +2,25 @@ function getExp() {
     $('#flag').html("");
       $.get("./api/getExp.php",{},function (e) {
           $('#flag').prepend(e);
+          $(".Exptr").hide();
+            $(".Exptr").each(function(i,v){
+            if(i<1){
+                $(v).show()
+            }
+        })
       })
       
-}
-function hideArt() {
-    $.get("./api/countArt.php",{},function (e) {
-      for (let i = 4; i <= e; i++) {
-        $(`#showArt${i}`).hide();
-        
-      }
-    })
 }
 function getBArt() {
     $('#flag').html("");
       $.get("./api/getBArt.php",{},function (e) {
           $('#flag').prepend(e);
+          $(".Arttr").hide();
+            $(".Arttr").each(function(i,v){
+            if(i<4){
+                $(v).show()
+            }
+        })
       })
       
 }
@@ -78,21 +82,58 @@ function getSkill() {
     $('#flag').html("");
     $.get("./api/getSkill.php",{},function (e) {
         $('#flag').prepend(e);
-    })
-    $.get("./api/countSkill.php",{},function (k) {
-        for (let i = 7; i < k+1; i++) {
-          $(`#skillcard${i}`).hide()        
-        }
+        $(".skillSize").hide();
+        $(".skillSize").each(function(i,v){
+            if(i<6){
+                $(v).show()
+            }
+        })
     })
 }
-function hideExp() {
-    $.get("./api/countExp.php",{},function (k) {
-      kk=k
-        for (let i = 2; i <= kk; i++) {
-          $(`#showExp${i}`).hide()
-        }
-      })    
-   
+function fixArt(e) {
+    let src=document.querySelector(`#inArtimg${e}`).src;
+    console.log(src)
+    let title=document.querySelector(`#Arttitle${e}`).innerText;
+    let text=document.querySelector(`#Arttext${e}`).innerText;
+    let link=document.querySelector(`#Artlink${e}`).innerText;
+    $(`#Artimg${e}`).html(`<img  onclick='chkfix()' src='${src}' style='width: 100px;height: 100px;' class='b-touch' id='fiximg'><div style='display: none;'><input type='file' class='AvatarInput Artimg' id='Fix-input' name='img' onchange='readFixURL(this)'></div>`);
+    $(`#Arttitle${e}`).html(`<input type="text" class="b-touch" id="fixtitle" value="${title}">`);
+    $(`#Arttext${e}`).html(`<input type="text" class="b-touch" id="fixtext" value="${text}">`);
+    $(`#Artlink${e}`).html(`<input type="text" class="b-touch" id="fixlink" value="${link}">`);
+    $(`#Artbtn${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='fixnowsBArt()' id='fixupload' value='確認'>`);
+    $(`#Artbthc${e}`).html(`<input class='b-touch btn btn-outline-secondary' type='button' onclick='getBArt()' value='取消'><input type="hidden" id="fixhidden" value='${e}'>`);  
+}
+function fixnowsBArt() {    
+      let photo = document.querySelector("#Fix-input");
+      let form_data = new FormData();
+      if(photo.files && photo.files[0]){
+          let file_data = $('#Fix-input').prop('files')[0];
+          form_data.append('file', file_data);   
+      }
+          form_data.append('title', $('#fixtitle').val());   
+          form_data.append('text', $('#fixtext').val());   
+          form_data.append('link', $('#fixlink').val());   
+          form_data.append('sh', $(`#Insh${$('#fixhidden').val()}`)[0].checked);   
+          form_data.append('id', $('#fixhidden').val());   
+          $.ajax({
+                  url: './api/fixArt.php',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                
+                  type: 'post',
+                  success: function (e) {
+                      alert("修正成功");
+                      getBArt()
+                      console.log(e)
+                  },
+                  error: function () {
+                     alert("錯誤：請確認黨格式與確實填寫");
+                  },
+           });
+}
+function chkart(e) {
+    document.querySelector(`#ArtLink${e}`).click();
 }
 function showExp(ee) {      
           vv=$('#startpage').val()
@@ -120,31 +161,16 @@ function showArtVal(e) {
     $.get("./api/countArt.php",{},function (k) {
       if(e==0){
         KK--
-        if(KK<3)KK=3
+        if(KK<4)KK=4
         $(`#showArt${KK+1}`).hide()
-        $(`#showArt${KK-2}`).show()
+        $(`#showArt${KK-3}`).show()
       }else{
         KK++
         if(KK>k)KK=k
-        $(`#showArt${KK-3}`).hide()
+        $(`#showArt${KK-4}`).hide()
         $(`#showArt${KK}`).show()
       }
       $('#startpage').val(KK);
-    })
-    
-}
-function showSkill() {
-    let start=$('#startpage').val();
-    $.get("./api/countSkill.php",{},function (k) {
-        let end=k*1-3;
-        if(start>end){
-          start=end;
-        }
-        if(start<1)start=1;
-        for (let i = start*1+1; i <= k; i++) {
-            $(`#showSkill${i}`).hide()
-  
-        }
     })
     
 }
@@ -153,14 +179,14 @@ function showSkillVal(e) {
     if(e==1)aa++;
     if(e==0)aa--;
     $.get("./api/countSkill.php",{},function (k) {
-    if(aa<3)aa=3;
+    if(aa<4)aa=4;
     if(aa>k)aa=k;
     $('#startpage').val(`${aa}`);
     if(e==0){
-      $(`#showSkill${aa-2}`).show()
+      $(`#showSkill${aa-3}`).show()
       $(`#showSkill${aa+1}`).hide()
     }else{
-      $(`#showSkill${aa-3}`).hide()
+      $(`#showSkill${aa-4}`).hide()
       $(`#showSkill${aa}`).show()
     }
     })
@@ -250,11 +276,12 @@ function getAExp() {
     $('#flag').html("");
     $.get("./api/getAExp.php",{},function (e) {
         $('#flag').prepend(e);
-    })
-    $.get("./api/countExp.php",{},function (k) {
-        for (let i = 3; i < k+1; i++) {
-          $(`#Expcard${i}`).hide()        
-        }
+        $(".expSize").hide();
+        $(".expSize").each(function(i,v){
+            if(i<2){
+                $(v).show()
+            }
+        })
     })
 }
 function GetExpVal(e) {
@@ -318,6 +345,9 @@ function readFixURL(input) {
     }
     
 }
+function chkart(e) {
+    document.querySelector(`#ArtLink${e}`).click();
+}
 function chkfix() {
     document.querySelector('#Fix-input').click();
 }
@@ -340,10 +370,16 @@ function getBSkill() {
     $('#flag').html("");
 $.get("./api/getBSkill.php",{},function (e) {
     $('#flag').prepend(e);
+    // showSkill
+    $(".Skiltr").hide();
+    $(".Skiltr").each(function(i,v){
+        if(i<4){
+            $(v).show()
+        }
+    })
 })
 } 
 function showMain(e) {
-
     $.get(`./client/${e}.html`, {}, (text) => {
         $('#main').html(text);
     });

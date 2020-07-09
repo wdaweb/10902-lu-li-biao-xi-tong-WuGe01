@@ -12,7 +12,7 @@ $str="<table style='width: 100%;'>
 </tr>";
 $e=1;
 foreach ($rows as $row) {
-$str=$str."<tr id='showSkill".$e."'>
+$str=$str."<tr id='showSkill".$e."' class='Skiltr'>
 <td id='Skillimg".$row['id']."'><img id='inSkillimg".$row['id']."' class='skillimg' src='./Skillimg/".$row['name']."' ></td>
 <td id='Skilltitle".$row['id']."'>".$row['title']."</td>
 <td width: 50%;  id='Skilltext".$row['id']."'>".$row['text']."</td>
