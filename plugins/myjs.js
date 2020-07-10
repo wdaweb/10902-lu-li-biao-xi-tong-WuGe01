@@ -559,20 +559,40 @@ function getRes() {
 }
 function GetSkillVal(e) {
     let val=$('#startpage').val();
-    if(e==0){
-      val--;
-      if(val<6)val=6;
-      $(`#skillcard${val-5}`).show() 
-      $(`#skillcard${val+1}`).hide() 
-      $('#startpage').val(val)
-    }else{
-      val++;
-      $.get("./api/countSkill.php",{},function (k) {
-      if(val>k)val=k;
-      $(`#skillcard${val}`).show() 
-      $(`#skillcard${val-6}`).hide()  
-      $('#startpage').val(val)
-      }) 
-    }
+    $.get("./api/countSkill.php",{},function (k) {
+    let page=Math.ceil(k/6);
+    console.log(page)
+        if(e==0){
+            if(val>1){
+                let q=(val*1-1);  
+                let qq=q*6
+                let qqq=val*6            
+                for (let i = qqq-5; i <= qqq; i++) {
+                    $(`#skillcard${i}`).hide() 
+                }
+                for (let j = qq-5; j <= qq; j++) {
+                    $(`#skillcard${j}`).show()   
+                }
+                $('#startpage').val(val*1-1)    
+                }
+                
+        }else{
+            if(val<page){
+                let v=(val*1+1)
+                let vv=v*6
+                let vvv=val*6
+                for (let i = vvv-5; i <= vvv; i++) {
+                    $(`#skillcard${i}`).hide() 
+                }
+                for (let j = vv-5; j <= vv; j++) {
+                    $(`#skillcard${j}`).show()   
+
+                }
+                $('#startpage').val(val*1+1)
+                }
+        }
+
+
+    })
 }
-   
+ 
