@@ -329,24 +329,6 @@ function getAExp() {
         })
     })
 }
-function GetExpVal(e) {
-    let val=$('#startpage').val()
-    $.get("./api/countExp.php",{},function (k) {
-        if(e==0){
-            val--
-            if(val<2)val=2
-            $(`#Expcard${val}`).show()    
-            $(`#Expcard${val+2}`).hide()    
-        }else{
-            val++
-            if(val>k)val=k
-            $(`#Expcard${val-2}`).hide()   
-            $(`#Expcard${val}`).show()  
-        }
-        $('#startpage').val(val)
-        
-    })
-}
 function GetArtVal(e) {
     let val=$('#startpage').val()
     $.get("./api/countArt.php",{},function (k) {
@@ -557,11 +539,44 @@ function getRes() {
         $('#title').html(str[0]['title'])
     },'json')
 }
+function GetExpVal(e) {
+    let val=$('#startpage').val()
+    $.get("./api/countExp.php",{},function (k) {
+        let page=Math.ceil(k/2);
+        if(e==0){
+        if(val>1){
+                let q=(val*1-1);  
+                let qq=q*2
+                let qqq=val*2           
+                for (let i = qqq-1; i <= qqq; i++) {
+                    $(`#Expcard${i}`).hide() 
+                }
+                for (let j = qq-1; j <= qq; j++) {
+                    $(`#Expcard${j}`).show() 
+                }
+                $('#startpage').val(val*1-1)    
+                }               
+        }else{
+            if(val<page){
+                let v=(val*1+1)
+                let vv=v*2
+                let vvv=val*2
+                for (let i = vvv-1; i <= vvv; i++) {
+                    $(`#Expcard${i}`).hide() 
+                }
+                for (let j = vv-1; j <= vv; j++) {
+                    $(`#Expcard${j}`).show()   
+                }
+                $('#startpage').val(val*1+1)
+                }
+        }
+        
+    })
+}
 function GetSkillVal(e) {
     let val=$('#startpage').val();
     $.get("./api/countSkill.php",{},function (k) {
     let page=Math.ceil(k/6);
-    console.log(page)
         if(e==0){
             if(val>1){
                 let q=(val*1-1);  
